@@ -36,4 +36,9 @@ public class ProductController {
     public double getSumOfAllOrderPrice(){
         return productService.getSumOfALlOrderPrice();
     }
+
+    @GetMapping("/order/avg/{date}")
+    public double getSumOfAllOrderPrice(@PathVariable("date")@DateTimeFormat(pattern = "yyyy-MM-dd")Date date){
+        return productService.getAvgPriceByOrderDate(date);
+    }
 }

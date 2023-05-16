@@ -50,4 +50,15 @@ public class ProductService {
         return result;
     }
 
+    public Double getAvgPriceByOrderDate(Date orderDate){
+        String query = "select avg(p.price)\n" +
+                "from order_product_relationship  rel\n" +
+                "    join\n" +
+                "    (select id,order_date from product_order where order_date = ?) as orderId\n" +
+                "        on rel.order_id = orderId.id\n" +
+                "    join product p on rel.product_id = p.id;";
+        Double result = jdbcTemplate.queryForObject(query, Double.class, orderDate);
+        return result;
+    }
+
 }
