@@ -19,4 +19,10 @@ public class CustomerService {
         List<Customer> result = jdbcTemplate.query(query, new Customer.CustomerRowMapper());
         return result;
     }
+
+    public List<Customer> getCustomersByOrderId(Integer orderId){
+        String query = "select * from customer where id in (select customer_id from product_order where id=?)";
+        List<Customer> result = jdbcTemplate.query(query,new Customer.CustomerRowMapper(),orderId);
+        return result;
+    }
 }
