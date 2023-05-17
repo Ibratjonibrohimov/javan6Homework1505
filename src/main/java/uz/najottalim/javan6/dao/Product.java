@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
-import uz.najottalim.javan6.service.ProductService;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -41,4 +41,15 @@ public class ProductController {
     public double getSumOfAllOrderPrice(@PathVariable("date")@DateTimeFormat(pattern = "yyyy-MM-dd")Date date){
         return productService.getAvgPriceByOrderDate(date);
     }
+
+    @GetMapping("/orders/{orderId}")
+    public List<Product> getProductsByOrderId(@PathVariable Integer orderId){
+        return productService.getProductsByOrderId(orderId);
+    }
+
+    @GetMapping("/orders/all-sum/{orderDate}")
+    public Double getAllSumByOrderId(@PathVariable("orderDate")@DateTimeFormat(pattern = "yyyy-MM-dd") Date orderDate){
+        return productService.getAllSumOrderId(orderDate);
+
+    }
 }
