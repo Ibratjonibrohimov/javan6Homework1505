@@ -17,4 +17,18 @@ public class OrderController {
     public List<Order> getOrdersByCustomerId(@PathVariable Integer customerId){
         return ordersService.getOrderByCustomerId(customerId);
     }
+
+    @GetMapping("/orders/most-recent/{count}")
+    public List<Order> getMostRecentOrders(@PathVariable Integer count){
+        return ordersService.getMostrecentOrders(count);
+    }
+    @GetMapping("/orders/day/{count}")
+    public List<Order> getOrdersLastCountDay(@PathVariable Integer count){
+        return ordersService.getOrdersLastCountDay(count);
+    }
+
+    @GetMapping("/orders/{status}/all-price")
+    public Double getAllPriceByStatus(@PathVariable String status){
+        return ordersService.getAllPriceByStatus(status);
+    }
 }

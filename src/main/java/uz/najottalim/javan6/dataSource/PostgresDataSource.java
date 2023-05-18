@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 @Data
 @Configuration
-public class OracleDataSource {
+public class PostgresDataSource {
     @Bean
     DataSource getDataSource(){
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();

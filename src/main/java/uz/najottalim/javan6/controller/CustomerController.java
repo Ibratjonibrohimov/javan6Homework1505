@@ -25,4 +25,13 @@ public class CustomerController {
     public List<Customer> getCostumersByOrderId(@PathVariable Integer orderId){
         return customerService.getCustomersByOrderId(orderId);
     }
+
+    @GetMapping("/customers/{name}")
+    public List<Customer> getCustomersByName(@PathVariable String name){
+        return customerService.getCustomersByName(name);
+    }
+    @GetMapping("/customers/orders/max-price")
+    public Customer getCustomerWhoMaxOrder(){
+        return customerService.getCustomerWhoMaxOrder();
+    }
 }

@@ -15,4 +15,11 @@ public interface ProductService {
     List<Product> getProductsByOrderId(Integer OrderId);
 
     Double getAllSumOrderId(Date orderDate);
+
+    Product getMaxPriceProductByCategory(String category);
+
+    List<Product> getProductsSortOffsetLimit(int limit, int offset, String columnName);
+
+    List<Product> getProductsByCustomerStatus(Integer customerId, String status);
 }
+

@@ -9,4 +9,8 @@ public interface CustomerService {
     List<Customer> getAllCustomers();
 
     List<Customer> getCustomersByOrderId(Integer orderId);
+
+    List<Customer> getCustomersByName(String name);
+
+    Customer getCustomerWhoMaxOrder();
 }

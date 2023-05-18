@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import uz.najottalim.javan6.dao.Product;
 import uz.najottalim.javan6.service.ProductService;
 
+import javax.print.attribute.standard.PrinterURI;
 import java.util.Date;
 import java.util.List;
 
@@ -48,8 +49,23 @@ public class ProductController {
     }
 
     @GetMapping("/orders/all-sum/{orderDate}")
-    public Double getAllSumByOrderId(@PathVariable("orderDate")@DateTimeFormat(pattern = "yyyy-MM-dd") Date orderDate){
+    public Double getAllSumByOrderId(@PathVariable("orderDate")@DateTimeFormat(pattern = "dd-MM-yyyy") Date orderDate){
         return productService.getAllSumOrderId(orderDate);
 
+    }
+
+    @GetMapping("/{category}/max")
+    public Product getMaxPriceProductByCategory(@PathVariable String category){
+        return productService.getMaxPriceProductByCategory(category);
+    }
+
+    @GetMapping("/all/limit/{limit}/offset/{offset}/sortBy/{columnName}")
+    public List<Product> getProductsSortOffsetLimit(@PathVariable int limit,@PathVariable int offset,@PathVariable String columnName){
+        return productService.getProductsSortOffsetLimit(limit,offset,columnName);
+    }
+
+    @GetMapping("/orders/{status}/customer/{customerId}")
+    public List<Product> getProductsByCustomerStatus(@PathVariable Integer customerId,@PathVariable String status){
+        return productService.getProductsByCustomerStatus(customerId,status);
     }
 }

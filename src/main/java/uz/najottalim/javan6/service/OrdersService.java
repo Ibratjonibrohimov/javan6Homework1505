@@ -8,4 +8,10 @@ import java.util.*;
 public interface OrdersService {
 
     List<Order> getOrderByCustomerId(Integer customerId);
+
+    List<Order> getMostrecentOrders(Integer count);
+
+    List<Order> getOrdersLastCountDay(Integer count);
+
+    Double getAllPriceByStatus(String status);
 }
